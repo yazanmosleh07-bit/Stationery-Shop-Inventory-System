@@ -1,15 +1,16 @@
 public class Product {
     public String name;
-    public int price;
+    public double price;
     public int id;
     public int quantity;
 
+    Product(){
 
-    Product(String name, int price,int id, int qunatity){
+    }
+    Product(String name, double price, int qunatity){
         this.quantity = qunatity;
         this.price = price;
         this.name = name;
-        this.id = id;
     }
 
     // all the getters for the attributes 
@@ -20,7 +21,7 @@ public class Product {
     public String getName(){
         return name;
     }
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
     public int getQuantity(){
