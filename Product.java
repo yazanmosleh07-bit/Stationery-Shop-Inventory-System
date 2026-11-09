@@ -28,6 +28,9 @@ public class Product {
         return  quantity;
 
     }
+    public void getInfo(){
+        System.out.println("Name: "+ getName()+ " "+"Price: "+getPrice()+" "+"Quantity: "+" "+getQuantity());
+    }
 
     // the methods that controls the quantity
     public void addStock(int amount){
@@ -41,7 +44,10 @@ public class Product {
         }
     }
     // a method to calculate price for now there isn't any discount perameters 
-    public int calculatePrice(int qty){
-        return qty;
+    public double calculatePrice(int qty,double discount){
+        double result;
+        result = (price * quantity) - discount;
+
+        return result;
     }
 }

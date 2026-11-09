@@ -1,10 +1,11 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.jar.Attributes.Name;
 
 public class Main {
     // the variable that stores the user's input
     public static final Scanner input = new Scanner(System.in);
+    // a variable that holds all the products
+    public static final Product[] Stock = new Product[3];
     public static void main(String[] args) {
         int choice;
         // stores the state
@@ -15,6 +16,7 @@ public class Main {
             startProgram();
             try{
             choice = input.nextInt();
+            input.nextLine();
             }catch(InputMismatchException e){
                 System.out.println("Please Enter A Valid Input");
                 input.nextLine();
@@ -31,9 +33,14 @@ public class Main {
                     continuePromt();
                     break;
                 case 3:
+                    checkStock();
                     break;
                 case 4:
                     AddToStock();
+                    break;
+                case 0:
+                    System.out.println("Exiting the program...");
+                    loopRunning = false;
                     break;
                 default:
                     break;
@@ -79,6 +86,7 @@ public class Main {
         Product p = new Product(name, price, quantity);
             
         System.out.println("Name: "+ p.getName()+ " "+"Price: "+p.getPrice()+" "+"Quantity: "+" "+p.getQuantity());
+        Stock[0] = p;
         continuePromt();
     }
 
@@ -103,9 +111,16 @@ public class Main {
 
     }
 
-
+    
     public static void checkStock(){
-
+        for (int i = 0;i < Stock.length;i++){
+            if(Stock[i] == null){
+                continue;
+            }else{
+            Stock[i].getInfo();
+            }
+        }
+        continuePromt();
     }
 
 

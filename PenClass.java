@@ -6,6 +6,12 @@ class penClass extends Product {
         inkColor = color;
     }
 
+    public void showInks(){}
+
+    public double calculatePrice(int qty, double discount) {
+        
+            return super.calculatePrice(qty,discount);
+    }
 
     
 }
