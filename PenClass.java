@@ -9,8 +9,10 @@ class penClass extends Product {
     public void showInks(){}
 
     public double calculatePrice(int qty, double discount) {
-        
-            return super.calculatePrice(qty,discount);
+        double result;
+        result = (price * quantity) - discount;
+
+        return result;
     }
 
     

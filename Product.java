@@ -32,6 +32,9 @@ public class Product {
         System.out.println("Name: "+ getName()+ " "+"Price: "+getPrice()+" "+"Quantity: "+" "+getQuantity());
     }
 
+    public void setQuantity(int q){
+        quantity = q;
+    }
     // the methods that controls the quantity
     public void addStock(int amount){
         quantity += amount;
@@ -43,11 +46,12 @@ public class Product {
             System.out.println("Can not remove, quantity is 0");
         }
     }
-    // a method to calculate price for now there isn't any discount perameters 
-    public double calculatePrice(int qty,double discount){
+    // a method to calculate price
+    public double calculatePrice(int qty){
         double result;
-        result = (price * quantity) - discount;
+        result = (price * quantity);
 
         return result;
     }
+    
 }
