@@ -1,8 +1,8 @@
 public class Product {
-    public String name;
-    public double price;
-    public int id;
-    public int quantity;
+    private  String name;
+    private  double price;
+    private  int id;
+    private  int quantity;
 
     Product(){
 
@@ -50,6 +50,7 @@ public class Product {
     public double calculatePrice(int qty){
         double result;
         result = (price * quantity);
+        quantity -= qty;
 
         return result;
     }

@@ -33,11 +33,12 @@ public class Main {
                     continuePromt();
                     break;
                 case 2:
-                    System.out.println("Buying a product..");
+                    restock();
                     continuePromt();
                     break;
                 case 3:
                     checkStock();
+                    continuePromt();
                     break;
                 case 4:
                     AddToStock();
@@ -79,6 +80,20 @@ public class Main {
     }
     }
 
+    public static void restock(){
+        checkStock();
+        int index = readInt("Product number to restock: ") - 1;
+        
+        int qty = readInt("Quantity to buy: ");
+
+        // get the chosen product from the list
+        Product p = Stock.getStockIndex(index);
+
+        p.setQuantity(p.getQuantity() + qty);
+
+        System.out.println("Bought " + qty + " x " + p.getName());
+        
+    }
     public static double readDouble(String prompt) {
         while (true) {
             System.out.print(prompt);
@@ -114,6 +129,7 @@ public class Main {
         System.out.print("  Enter your choice: ");
         }
 
+    
     // take a product class object and adds it to the arraylist Stock
     public static void addToList(Product prod){
         Stock.addProduct(prod);
@@ -127,6 +143,8 @@ public class Main {
         System.out.println(" ");
         input.nextLine();
     }
+
+
     // creates a product then adds it to the stock
     public static void createProduct() {
     System.out.print("Enter the name: ");
@@ -139,20 +157,12 @@ public class Main {
     System.out.printf("Added: %s | Price: %.2f | Quantity: %d%n", name, price, quantity);
     }
 
-    public static void showProductList() {
-        for (int i = 0; i < Stock.getStockSize(); i++) {
-            System.out.println("========================================");
-            System.out.print((i + 1) + " ");
-            Stock.getStockIndex(i).getInfo();
-            System.out.println("========================================");
-        }
-    }
+
 
     
     public static void checkStock() {
         if (Stock.isEmpty()) {
             System.out.println("Stock is empty.");
-            continuePromt();
             return;
         }
 
@@ -162,7 +172,6 @@ public class Main {
             Stock.getStockIndex(i).getInfo();
             System.out.println("========================================");
         }
-        continuePromt();
     }
 
 
@@ -175,7 +184,7 @@ public class Main {
         }
 
         // display all products so the user can pick one by number
-        showProductList();
+        checkStock();
 
         // the menu shows 1..n but the ArrayList is 0-based, so subtract 1 to get the index
         int index = readInt("Product number to sell: ") - 1;
@@ -199,7 +208,7 @@ public class Main {
         }
 
         // subtract the sold amount from the product's quantity
-        p.setQuantity(p.getQuantity() - qty);
+        p.calculatePrice(qty);
 
         // confirm the sale to the user
         System.out.println("Sold " + qty + " x " + p.getName());
@@ -208,3 +217,4 @@ public class Main {
         createProduct();
     }
 }
+

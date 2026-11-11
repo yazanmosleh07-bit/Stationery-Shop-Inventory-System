@@ -1,5 +1,5 @@
 class penClass extends Product {
-    String inkColor;
+    private String inkColor;
 
     penClass(String name, int price, int qunatity,String color){
         super(name,price,qunatity);
@@ -8,12 +8,7 @@ class penClass extends Product {
 
     public void showInks(){}
 
-    public double calculatePrice(int qty, double discount) {
-        double result;
-        result = (price * quantity) - discount;
 
-        return result;
-    }
 
     
 }
