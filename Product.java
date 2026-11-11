@@ -1,58 +1,52 @@
-public class Product {
-    private  String name;
-    private  double price;
-    private  int id;
-    private  int quantity;
+import java.io.Serializable;
 
-    Product(){
+public class Product implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private static int nextId = 1;          // shared counter, gives each product a unique id
 
+    private String name;
+    private double price;
+    private int id;
+    private int quantity;
+
+    public Product() {
+        this.id = nextId++;
     }
-    Product(String name, double price, int qunatity){
-        this.quantity = qunatity;
-        this.price = price;
+
+    public Product(String name, double price, int quantity) {
+        this.id = nextId++;
         this.name = name;
+        this.price = price;
+        this.quantity = quantity;
     }
 
-    // all the getters for the attributes 
-    public int getId(){
+    // getters
+    public int getId() { return id; }
+    public String getName() { return name; }
+    public double getPrice() { return price; }
+    public int getQuantity() { return quantity; }
 
-        return id;
-    }
-    public String getName(){
-        return name;
-    }
-    public double getPrice(){
-        return price;
-    }
-    public int getQuantity(){
-        return  quantity;
+    public void setQuantity(int q) { quantity = q; }
 
-    }
-    public void getInfo(){
-        System.out.println("Name: "+ getName()+ " "+"Price: "+getPrice()+" "+"Quantity: "+" "+getQuantity());
-    }
-
-    public void setQuantity(int q){
-        quantity = q;
-    }
-    // the methods that controls the quantity
-    public void addStock(int amount){
+    // methods that control the quantity
+    public void addStock(int amount) {
         quantity += amount;
     }
-    public void removeStock(int amount){
-        if (quantity > 0){
+
+    public void removeStock(int amount) {
+        if (amount <= quantity) {
             quantity -= amount;
-        }else{
-            System.out.println("Can not remove, quantity is 0");
+        } else {
+            System.out.println("Can not remove " + amount + ", only " + quantity + " in stock.");
         }
     }
-    // a method to calculate price
-    public double calculatePrice(int qty){
-        double result;
-        result = (price * quantity);
-        quantity -= qty;
 
-        return result;
+    // price for buying qty units (does NOT change stock)
+    public double calculatePrice(int qty) {
+        return price * qty;
     }
-    
+
+    public void getInfo() {
+        System.out.println("Name: " + name + " | Price: " + price + " | Quantity: " + quantity);
+    }
 }

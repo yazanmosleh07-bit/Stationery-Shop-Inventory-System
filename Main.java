@@ -5,19 +5,28 @@ import java.util.Scanner;
 public class Main {
     // the variable that stores the user's input
     public static final Scanner input = new Scanner(System.in);
+    
+    public static final DataManager dataManger = new DataManager();
+    
     // a arraylist variable that holds all the products and let it shrink and grow 
-    public static final InventoryClass Stock = new InventoryClass();
-
-
+    public static InventoryClass Stock = new InventoryClass();
 
     public static void main(String[] args) {
+        //loads save data from disk
+            Stock = dataManger.load();
+
         int choice;
+        
         // stores the state
         boolean loopRunning = true;
 
         // main loop
         while (loopRunning) {
+
+            //prints out the start promt
             startProgram();
+
+            // catching errors
             try{
             choice = input.nextInt();
             input.nextLine();
@@ -26,6 +35,8 @@ public class Main {
                 input.nextLine();
                 continue;
             }
+
+
             switch (choice) {
                 case 1:
                     System.out.println("selling a product...");
@@ -45,6 +56,8 @@ public class Main {
                     break;
                 case 0:
                     System.out.println("Exiting the program...");
+                    System.out.println("Saving..");
+                    dataManger.save(Stock);
                     loopRunning = false;
                     break;
                 default:
@@ -81,19 +94,27 @@ public class Main {
     }
 
     public static void restock(){
+        if (Stock.isEmpty()) {
+            System.out.println("Nothing to restock, stock is empty.");
+            return;
+        }
+        
         checkStock();
         int index = readInt("Product number to restock: ") - 1;
+        if (index < 0 || index >= Stock.getStockSize()) {
+            System.out.println("Invalid product number.");
+            return;
+        }
         
         int qty = readInt("Quantity to buy: ");
-
-        // get the chosen product from the list
         Product p = Stock.getStockIndex(index);
-
-        p.setQuantity(p.getQuantity() + qty);
-
+        
+        p.addStock(qty);  
         System.out.println("Bought " + qty + " x " + p.getName());
         
+        dataManger.save(Stock);
     }
+
     public static double readDouble(String prompt) {
         while (true) {
             System.out.print(prompt);
@@ -155,6 +176,7 @@ public class Main {
     Product p = new Product(name, price, quantity);
     Stock.addProduct(p);
     System.out.printf("Added: %s | Price: %.2f | Quantity: %d%n", name, price, quantity);
+    dataManger.save(Stock);
     }
 
 
@@ -208,10 +230,12 @@ public class Main {
         }
 
         // subtract the sold amount from the product's quantity
-        p.calculatePrice(qty);
-
+        double total = p.calculatePrice(qty);
+        p.removeStock(qty);
+        
         // confirm the sale to the user
-        System.out.println("Sold " + qty + " x " + p.getName());
+        System.out.println("Sold " + qty + " x " + p.getName() + " | Total: " + total);
+        dataManger.save(Stock);
     }
     public static void AddToStock(){
         createProduct();

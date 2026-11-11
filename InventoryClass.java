@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class InventoryClass {
+public class InventoryClass implements Serializable{
     private ArrayList<Product> stock = new ArrayList<>();
 
     public void setStock(ArrayList<Product> stock) {
@@ -17,10 +18,14 @@ public class InventoryClass {
     }
     public boolean removeProduct(Product p) {
     return stock.remove(p);
-}
+    }
 
-    public void removeProductAt(int i) {
-        stock.remove(i);
+    public boolean removeProductAt(int i) {
+    if (i < 0 || i >= stock.size()) {
+        return false;
+    }
+    stock.remove(i);
+    return true;
     }
     public int getStockSize(){
         return stock.size();
@@ -31,6 +36,7 @@ public class InventoryClass {
     public void printStock() {
     for (int i = 0; i < stock.size(); i++) {
         System.out.println(i + ": " + stock.get(i));
+        }
     }
-}
+    
 }
