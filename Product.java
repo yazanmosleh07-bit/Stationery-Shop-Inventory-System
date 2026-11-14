@@ -9,6 +9,7 @@ public class Product implements Serializable {
     private int id;
     private int quantity;
 
+    //constructors
     public Product() {
         this.id = nextId++;
     }

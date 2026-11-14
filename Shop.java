@@ -2,16 +2,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Shop implements Serializable {
+    //a version ID that keeps saved files compatible when I update the classes
     private static final long serialVersionUID = 1L;
     private InventoryClass inventory = new InventoryClass();
     private ArrayList<Employee> staff = new ArrayList<>();
 
-    public InventoryClass getInventory() { return inventory; }
 
-    public void addEmployee(Employee e) { staff.add(e); }
+    // class getters
+    public InventoryClass getInventory() { return inventory; }
     public int getStaffSize() { return staff.size(); }
     public Employee getEmployee(int i) { return staff.get(i); }
 
+    public void addEmployee(Employee e) { staff.add(e); }
     public boolean removeEmployeeAt(int i) {
         if (i < 0 || i >= staff.size()) return false;
         staff.remove(i);

@@ -7,7 +7,7 @@ public class Employee implements Serializable {
     private final int id;
     private String name;
     private double baseSalary;
-
+    // contructor 
     public Employee(String name, double baseSalary) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("Name can't be empty.");
@@ -19,14 +19,14 @@ public class Employee implements Serializable {
         this.name = name;
         this.baseSalary = baseSalary;
     }
-
+    //getters
     public int getId() { return id; }
     public String getName() { return name; }
     protected double getBaseSalary() { return baseSalary; }
-
-    public double calculateSalary() { return baseSalary; }
     public String getRole() { return "Employee"; }
 
+    public double calculateSalary() { return baseSalary; }
+    
     // called after loading from disk so new ids don't repeat old ones
     public static void syncNextId(int highestId) {
         if (highestId >= nextId) nextId = highestId + 1;

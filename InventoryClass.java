@@ -3,16 +3,22 @@ import java.util.ArrayList;
 
 public class InventoryClass implements Serializable{
     private ArrayList<Product> stock = new ArrayList<>();
-
+    //setter
     public void setStock(ArrayList<Product> stock) {
         this.stock = stock;
     }
+    //getters
     public ArrayList<Product> getStock() {
         return stock;
     }
     public Product getStockIndex(int i){
         return stock.get(i);
     }
+    public int getStockSize(){
+        return stock.size();
+    }
+    
+    //methods
     public void addProduct(Product p ){
         stock.add(p);
     }
@@ -26,9 +32,6 @@ public class InventoryClass implements Serializable{
     }
     stock.remove(i);
     return true;
-    }
-    public int getStockSize(){
-        return stock.size();
     }
     public boolean isEmpty(){
         return stock.isEmpty();
