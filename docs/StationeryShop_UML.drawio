@@ -1,0 +1,127 @@
+<mxfile host="Electron">
+  <diagram name="Class Diagram" id="uml_stationery">
+    <mxGraphModel dx="1398" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Product" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=none;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontColor=#000000;" value="Product" vertex="1">
+          <mxGeometry height="338" width="330" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Product_a" parent="Product" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="&lt;u&gt;- nextId : int&lt;/u&gt;&lt;br&gt;- name : String&lt;br&gt;- price : double&lt;br&gt;- id : int&lt;br&gt;- quantity : int" vertex="1">
+          <mxGeometry height="98" width="330" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Product_s" parent="Product" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="8" width="330" y="124" as="geometry" />
+        </mxCell>
+        <mxCell id="Product_m" parent="Product" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="+ Product()&lt;br&gt;+ Product(name: String, price: double, quantity: int)&lt;br&gt;+ getId() : int&lt;br&gt;+ getName() : String&lt;br&gt;+ getPrice() : double&lt;br&gt;+ getQuantity() : int&lt;br&gt;+ setQuantity(q: int) : void&lt;br&gt;+ addStock(amount: int) : void&lt;br&gt;+ removeStock(amount: int) : void&lt;br&gt;+ calculatePrice(qty: int) : double&lt;br&gt;+ getInfo() : void" vertex="1">
+          <mxGeometry height="206" width="330" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="Inventory" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=none;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontColor=#000000;" value="InventoryClass" vertex="1">
+          <mxGeometry height="230" width="300" x="420" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Inventory_a" parent="Inventory" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="- stock : ArrayList&amp;lt;Product&amp;gt;" vertex="1">
+          <mxGeometry height="26" width="300" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Inventory_s" parent="Inventory" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="8" width="300" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Inventory_m" parent="Inventory" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="+ setStock(stock: ArrayList&amp;lt;Product&amp;gt;) : void&lt;br&gt;+ getStock() : ArrayList&amp;lt;Product&amp;gt;&lt;br&gt;+ getStockIndex(i: int) : Product&lt;br&gt;+ addProduct(p: Product) : void&lt;br&gt;+ removeProduct(p: Product) : boolean&lt;br&gt;+ removeProductAt(i: int) : void&lt;br&gt;+ getStockSize() : int&lt;br&gt;+ isEmpty() : boolean&lt;br&gt;+ printStock() : void" vertex="1">
+          <mxGeometry height="170" width="300" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Shop" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=none;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontColor=#000000;" value="Shop" vertex="1">
+          <mxGeometry height="194" width="330" x="800" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Shop_a" parent="Shop" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="- inventory : InventoryClass&lt;br&gt;- staff : ArrayList&amp;lt;Employee&amp;gt;" vertex="1">
+          <mxGeometry height="44" width="330" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Shop_s" parent="Shop" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="8" width="330" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Shop_m" parent="Shop" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="+ getInventory() : InventoryClass&lt;br&gt;+ addEmployee(e: Employee) : void&lt;br&gt;+ getStaffSize() : int&lt;br&gt;+ getEmployee(i: int) : Employee&lt;br&gt;+ removeEmployeeAt(i: int) : boolean&lt;br&gt;+ syncIds() : void" vertex="1">
+          <mxGeometry height="116" width="330" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="DataManager" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=none;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontColor=#000000;" value="DataManager" vertex="1">
+          <mxGeometry height="104" width="280" x="420" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="DataManager_a" parent="DataManager" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="&lt;u&gt;- FILE_NAME : String&lt;/u&gt;" vertex="1">
+          <mxGeometry height="26" width="280" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="DataManager_s" parent="DataManager" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="8" width="280" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="DataManager_m" parent="DataManager" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="+ save(shop: Shop) : void&lt;br&gt;+ load() : Shop" vertex="1">
+          <mxGeometry height="44" width="280" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Employee" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=none;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontColor=#000000;" value="Employee" vertex="1">
+          <mxGeometry height="266" width="330" x="800" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="Employee_a" parent="Employee" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="&lt;u&gt;- nextId : int&lt;/u&gt;&lt;br&gt;- id : int&lt;br&gt;- name : String&lt;br&gt;- baseSalary : double" vertex="1">
+          <mxGeometry height="80" width="330" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Employee_s" parent="Employee" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="8" width="330" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="Employee_m" parent="Employee" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="+ Employee(name: String, baseSalary: double)&lt;br&gt;+ getId() : int&lt;br&gt;+ getName() : String&lt;br&gt;# getBaseSalary() : double&lt;br&gt;+ calculateSalary() : double&lt;br&gt;+ getRole() : String&lt;br&gt;+ toString() : String&lt;br&gt;&lt;u&gt;+ syncNextId(highestId: int) : void&lt;/u&gt;" vertex="1">
+          <mxGeometry height="152" width="330" y="114" as="geometry" />
+        </mxCell>
+        <mxCell id="Manager" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=none;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontColor=#000000;" value="Manager" vertex="1">
+          <mxGeometry height="140" width="320" x="600" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="Manager_a" parent="Manager" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="- bonus : double" vertex="1">
+          <mxGeometry height="26" width="320" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Manager_s" parent="Manager" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="8" width="320" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Manager_m" parent="Manager" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="+ Manager(name: String, baseSalary: double,&lt;br&gt;     bonus: double)&lt;br&gt;+ calculateSalary() : double&lt;br&gt;+ getRole() : String" vertex="1">
+          <mxGeometry height="80" width="320" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Cashier" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=none;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;swimlaneFillColor=#ffffff;fontColor=#000000;" value="Cashier" vertex="1">
+          <mxGeometry height="158" width="330" x="980" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="Cashier_a" parent="Cashier" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="- salesCount : int" vertex="1">
+          <mxGeometry height="26" width="330" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="Cashier_s" parent="Cashier" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="8" width="330" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="Cashier_m" parent="Cashier" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=6;spacingRight=4;overflow=hidden;rotatable=0;fontSize=12;fontColor=#000000;" value="+ Cashier(name: String, baseSalary: double)&lt;br&gt;+ recordSale() : void&lt;br&gt;+ getSalesCount() : int&lt;br&gt;+ calculateSalary() : double&lt;br&gt;+ getRole() : String" vertex="1">
+          <mxGeometry height="98" width="330" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mgr" edge="1" parent="1" source="Manager" style="endArrow=block;endFill=0;endSize=14;startArrow=none;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.3;entryY=1;entryDx=0;entryDy=0;" target="Employee">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_cash" edge="1" parent="1" source="Cashier" style="endArrow=block;endFill=0;endSize=14;startArrow=none;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" target="Employee">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_comp" edge="1" parent="1" source="Shop" style="endArrow=none;startArrow=diamond;startFill=1;startSize=16;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;exitX=0;exitY=0.52;exitDx=0;exitDy=0;entryX=1;entryY=0.44;entryDx=0;entryDy=0;" target="Inventory">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_agg1" edge="1" parent="1" source="Inventory" style="endArrow=none;startArrow=diamond;startFill=0;startSize=16;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;exitX=0;exitY=0.44;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;" target="Product">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_agg2" edge="1" parent="1" source="Shop" style="endArrow=none;startArrow=diamond;startFill=0;startSize=16;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Employee">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dep" edge="1" parent="1" source="DataManager" style="endArrow=open;endFill=0;dashed=1;edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#000000;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.9;entryDx=0;entryDy=0;" target="Shop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l_inv_prod" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#000000;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="50" x="352" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="l_staff_mult" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#000000;" value="0..*" vertex="1">
+          <mxGeometry height="20" width="50" x="972" y="296" as="geometry" />
+        </mxCell>
+        <mxCell id="l_staff_role" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#000000;" value="staff" vertex="1">
+          <mxGeometry height="20" width="50" x="972" y="262" as="geometry" />
+        </mxCell>
+        <mxCell id="l_comp_mult" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#000000;" value="1" vertex="1">
+          <mxGeometry height="20" width="30" x="722" y="118" as="geometry" />
+        </mxCell>
+        <mxCell id="l_dep" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=12;fontColor=#000000;" value="uses" vertex="1">
+          <mxGeometry height="20" width="50" x="702" y="290" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
