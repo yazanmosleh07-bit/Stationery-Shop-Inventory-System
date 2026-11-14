@@ -39,6 +39,17 @@ src/
 └── DataManager.java     # Saves and loads the shop using Java serialization
 ```
 
+## UML Class Diagram
+
+![Class diagram of the Stationery Shop system](docs/StationeryShop_UML.drawio.png)
+
+- **Inheritance:** `Manager` and `Cashier` extend `Employee`
+- **Composition:** `Shop` owns its `InventoryClass`
+- **Aggregation:** `InventoryClass` holds `Product` objects, and `Shop` holds `Employee` objects
+- **Dependency:** `DataManager` uses `Shop` to save and load the data
+
+The editable draw.io source is in [`docs/StationeryShop_UML.drawio`](docs/StationeryShop_UML.drawio).
+
 ## How Saving Works
 
 `DataManager` writes the whole `Shop` (inventory and staff) to a file called `shop.dat` using Java serialization. The classes that make up the shop implement `Serializable`, so everything inside them is saved in one step. On startup, the program loads `shop.dat`, or starts with an empty shop if the file does not exist yet.
