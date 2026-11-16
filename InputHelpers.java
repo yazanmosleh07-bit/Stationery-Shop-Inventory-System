@@ -50,5 +50,24 @@ public class InputHelpers {
             }
         }
     }
+    public static String readString(String prompt){
+        while (true) {
+            System.out.print(prompt);
+            try {
+                //storing input value
+                String value = input.next();
+                input.nextLine();
+                return value;
+            } 
+            //cathing errors
+            catch (InputMismatchException e) {
+                System.out.println("Please enter a valid Text.");
+                input.nextLine();
+            }
+        }
 
+    }
+    public static void readnext(){
+        input.nextLine();
+    }
 }

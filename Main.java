@@ -1,10 +1,7 @@
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Main {
 
-    // the variable that stores the user's input
-    public static final Scanner input = new Scanner(System.in);
     // loads and saves the whole shop (inventory + staff) from/to disk
     public static final DataManager dataManger = new DataManager();
     // the shop that owns the inventory and the employees
@@ -24,7 +21,7 @@ public class Main {
 
         mainLoop();
 
-        input.close();
+
     }
 
     // holds the main loop of the program and its actions
@@ -35,11 +32,10 @@ public class Main {
 
             // catching errors
             try {
-                choice = input.nextInt();
-                input.nextLine();
+                choice = InputHelpers.readInt("");
+                
             } catch (InputMismatchException e) {
                 System.out.println("Please Enter A Valid Input");
-                input.nextLine();
                 continue;
             }
 
@@ -101,17 +97,13 @@ public class Main {
         System.out.print("  Enter your choice: ");
     }
 
-    // ---------------------------------------------------------------
-    // input helpers: always check for errors and negative numbers
-    // ---------------------------------------------------------------
-    
     public static void continuePromt() {
         System.out.println(" ");
         System.out.println(" ");
         System.out.println("Press Enter To Continue");
         System.out.println(" ");
         System.out.println(" ");
-        input.nextLine();
+        InputHelpers.readnext();
     }
 
     // ---------------------------------------------------------------
@@ -125,8 +117,7 @@ public class Main {
 
     // creates a product then adds it to the stock
     public static void createProduct() {
-        System.out.print("Enter the name: ");
-        String name = input.nextLine();
+        String name = InputHelpers.readString("Enter the name");
         double price = InputHelpers.readDouble("Enter the price: ");
         int quantity = InputHelpers.readInt("Enter quantity: ");
 
@@ -241,8 +232,7 @@ public class Main {
     }
 
     public static void addEmployee() {
-        System.out.print("Name: ");
-        String name = input.nextLine();
+        String name = InputHelpers.readString("Enter the name: ");
         double salary = InputHelpers.readDouble("Base salary: ");
         int type = InputHelpers.readInt("Role (1 = Cashier, 2 = Manager): ");
 
