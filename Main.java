@@ -104,42 +104,7 @@ public class Main {
     // ---------------------------------------------------------------
     // input helpers: always check for errors and negative numbers
     // ---------------------------------------------------------------
-    public static int readInt(String prompt) {
-        while (true) {
-            System.out.print(prompt);
-            try {
-                int value = input.nextInt();
-                input.nextLine();
-                if (value < 0) {
-                    System.out.println("Value can't be negative.");
-                    continue;
-                }
-                return value;
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid number.");
-                input.nextLine();
-            }
-        }
-    }
-
-    public static double readDouble(String prompt) {
-        while (true) {
-            System.out.print(prompt);
-            try {
-                double value = input.nextDouble();
-                input.nextLine();
-                if (value < 0) {
-                    System.out.println("Value can't be negative.");
-                    continue;
-                }
-                return value;
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid number.");
-                input.nextLine();
-            }
-        }
-    }
-
+    
     public static void continuePromt() {
         System.out.println(" ");
         System.out.println(" ");
@@ -162,8 +127,8 @@ public class Main {
     public static void createProduct() {
         System.out.print("Enter the name: ");
         String name = input.nextLine();
-        double price = readDouble("Enter the price: ");
-        int quantity = readInt("Enter quantity: ");
+        double price = InputHelpers.readDouble("Enter the price: ");
+        int quantity = InputHelpers.readInt("Enter quantity: ");
 
         Product p = new Product(name, price, quantity);
         Stock.addProduct(p);
@@ -197,13 +162,13 @@ public class Main {
         }
 
         checkStock();
-        int index = readInt("Product number to restock: ") - 1;
+        int index = InputHelpers.readInt("Product number to restock: ") - 1;
         if (index < 0 || index >= Stock.getStockSize()) {
             System.out.println("Invalid product number.");
             return;
         }
 
-        int qty = readInt("Quantity to buy: ");
+        int qty = InputHelpers.readInt("Quantity to buy: ");
         Product p = Stock.getStockIndex(index);
 
         p.addStock(qty);
@@ -224,7 +189,7 @@ public class Main {
         checkStock();
 
         // the menu shows 1..n but the ArrayList is 0-based, so subtract 1 to get the index
-        int index = readInt("Product number to sell: ") - 1;
+        int index = InputHelpers.readInt("Product number to sell: ") - 1;
 
         // reject numbers outside the list (0, negatives, or bigger than the list size)
         if (index < 0 || index >= Stock.getStockSize()) {
@@ -233,7 +198,7 @@ public class Main {
         }
 
         // how many units the customer is buying
-        int qty = readInt("Quantity to sell: ");
+        int qty = InputHelpers.readInt("Quantity to sell: ");
 
         // get the chosen product from the list
         Product p = Stock.getStockIndex(index);
@@ -258,7 +223,7 @@ public class Main {
     // ---------------------------------------------------------------
     public static void employeeMenu() {
         System.out.println("1. Add employee  2. List employees  3. Remove employee");
-        int option = readInt("Choose: ");
+        int option = InputHelpers.readInt("Choose: ");
         switch (option) {
             case 1:
                 addEmployee();
@@ -278,13 +243,13 @@ public class Main {
     public static void addEmployee() {
         System.out.print("Name: ");
         String name = input.nextLine();
-        double salary = readDouble("Base salary: ");
-        int type = readInt("Role (1 = Cashier, 2 = Manager): ");
+        double salary = InputHelpers.readDouble("Base salary: ");
+        int type = InputHelpers.readInt("Role (1 = Cashier, 2 = Manager): ");
 
         try {
             Employee e;
             if (type == 2) {
-                double bonus = readDouble("Bonus: ");
+                double bonus = InputHelpers.readDouble("Bonus: ");
                 e = new Manager(name, salary, bonus);
             } else {
                 e = new Cashier(name, salary);
@@ -310,7 +275,7 @@ public class Main {
     public static void removeEmployee() {
         listEmployees();
         if (shop.getStaffSize() == 0) return;
-        int index = readInt("Employee number to remove: ") - 1;
+        int index = InputHelpers.readInt("Employee number to remove: ") - 1;
         if (shop.removeEmployeeAt(index)) {
             dataManger.save(shop);
             System.out.println("Removed.");
