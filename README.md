@@ -35,6 +35,7 @@ src/
 ├── Product.java         # A product with a price and quantity
 ├── Employee.java        # Base class for staff
 ├── Manager.java         # Employee with a bonus
+├── InputHelpers.java    # Scanner Class For Input
 ├── Cashier.java         # Employee paid per completed sale
 └── DataManager.java     # Saves and loads the shop using Java serialization
 ```
